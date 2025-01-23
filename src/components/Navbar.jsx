@@ -54,9 +54,9 @@ const Navbar = () => {
         <div className="md:hidden bg-gray-100 text-black p-4">
           <div className="flex flex-col space-y-4">
           <Link to="/" className="hover:text-gray-300">Home</Link>
-          <Link to="/" className="hover:text-gray-300">About</Link>
-          <Link to="/" className="hover:text-gray-300">Features</Link>
-          <Link to="/" className="hover:text-gray-300">Contact</Link>
+          <Link to="/about" className="hover:text-gray-300">About</Link>
+          <Link to="/feature" className="hover:text-gray-300">Features</Link>
+          <Link to="/contact" className="hover:text-gray-300">Contact</Link>
 
           <a
             href="#register"
