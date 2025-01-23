@@ -9,24 +9,27 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close the menu when a link is clicked
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="bg-gray-100 text-black p-4">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center">
         {/* Logo (CampusPilot) */}
         <div className="text-2xl font-bold">
-            <Link to="" className="flex items-center" > 
+          <Link to="" className="flex items-center">
             <span className="text-[#035140]"> CampusPilot </span>
-             </Link>
-          
+          </Link>
         </div>
 
         {/* Menu items (Home, About Us, Features, Contact) */}
         <div className="hidden md:flex space-x-8">
-            <Link to="/" className="hover:text-gray-300">Home</Link>
-            <Link to="/about" className="hover:text-gray-300">About Us</Link>
-            <Link to="/features" className="hover:text-gray-300">Features</Link>
-            <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-
+          <Link to="/" className="hover:text-gray-300">Home</Link>
+          <Link to="/about" className="hover:text-gray-300">About Us</Link>
+          <Link to="/features" className="hover:text-gray-300">Features</Link>
+          <Link to="/contact" className="hover:text-gray-300">Contact</Link>
         </div>
 
         {/* Register Now button */}
@@ -53,17 +56,17 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-gray-100 text-black p-4">
           <div className="flex flex-col space-y-4">
-          <Link to="/" className="hover:text-gray-300">Home</Link>
-          <Link to="/about" className="hover:text-gray-300">About</Link>
-          <Link to="/feature" className="hover:text-gray-300">Features</Link>
-          <Link to="/contact" className="hover:text-gray-300">Contact</Link>
+            <Link to="/" className="hover:text-gray-300" onClick={closeMenu}>Home</Link>
+            <Link to="/about" className="hover:text-gray-300" onClick={closeMenu}>About</Link>
+            <Link to="/features" className="hover:text-gray-300" onClick={closeMenu}>Features</Link>
+            <Link to="/contact" className="hover:text-gray-300" onClick={closeMenu}>Contact</Link>
 
-          <a
-            href="#register"
-            className="bg-[#035140] hover:bg-[#035140cc] text-white py-2 px-6 rounded-lg font-semibold"
-          >
-            Register Now
-          </a>
+            <a
+              href="#register"
+              className="bg-[#035140] hover:bg-[#035140cc] text-white py-2 px-6 rounded-lg font-semibold"
+            >
+              Register Now
+            </a>
           </div>
         </div>
       )}
