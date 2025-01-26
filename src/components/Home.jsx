@@ -1,4 +1,6 @@
 import React from 'react';
+// import * as motion from "motion/react-client"
+import * as motion from 'motion/react-client';
 import Footer from './Footer';
 import testimonials from './Testimonial';
 
@@ -6,7 +8,14 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative text-black">
+      <motion.section
+        className="relative text-black"
+        initial={{ opacity: 0, translateX: "100%" }}
+        animate={{ opacity: 1, translateX: 0 }}
+        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1, translateX: 0 }}
+        viewport={{ once: true }}
+      >
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: 'url("/assets/bg.svg")' }}
@@ -30,10 +39,18 @@ const Home = () => {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose CampusPilot Section */}
-      <section id="why-choose" className="py-24 bg-gray-50">
+      <motion.section
+        id="why-choose"
+        className="py-24 bg-gray-50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
         <div className="max-w-screen-xl mx-auto px-6">
           <h2 className="text-3xl sm:text-4xl font-semibold text-center text-[#035140]">
             Why Choose CampusPilot?
@@ -44,7 +61,14 @@ const Home = () => {
           </p>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Reason 1 */}
-            <div className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl">
+            <motion.div
+              className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl text-[#035140] mb-4">
                 <i className="fas fa-users"></i> {/* Icon */}
               </div>
@@ -52,9 +76,16 @@ const Home = () => {
               <p className="mt-4 text-gray-600">
                 Our platform is designed with ease of use in mind, so anyone can quickly navigate and utilize the tools with minimal training required.
               </p>
-            </div>
+            </motion.div>
             {/* Reason 2 */}
-            <div className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl">
+            <motion.div
+              className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl text-[#035140] mb-4">
                 <i className="fas fa-lock"></i> {/* Icon */}
               </div>
@@ -62,9 +93,16 @@ const Home = () => {
               <p className="mt-4 text-gray-600">
                 We prioritize your data security with robust encryption and continuous monitoring, ensuring your school’s data stays private and safe.
               </p>
-            </div>
+            </motion.div>
             {/* Reason 3 */}
-            <div className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl">
+            <motion.div
+              className="text-center p-6 bg-white shadow-lg rounded-lg transition duration-300 hover:scale-105 hover:shadow-xl"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl text-[#035140] mb-4">
                 <i className="fas fa-cogs"></i> {/* Icon */}
               </div>
@@ -72,55 +110,69 @@ const Home = () => {
               <p className="mt-4 text-gray-600">
                 Tailor the platform to fit your school’s unique needs. From custom reports to personalized access control, we’ve got it covered.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-{/* Testimonial Section */}
-<section className="py-24 bg-[#f9f9f9]">
-  <div className="max-w-screen-xl mx-auto px-6 text-center">
-    <h2 className="text-3xl sm:text-4xl font-semibold text-[#035140] mb-8">
-      What Our Clients Say
-    </h2>
-    <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Reduced gap */}
-      {testimonials.map((testimonial, index) => (
-        <div
-          key={index}
-          className="testimonial-card flex flex-col items-center bg-white shadow-lg rounded-lg p-5 w-80" > {/* Increased width and reduced padding */}
-          {/* Testimonial text */}
-          <p className="text-lg sm:text-xl text-gray-600 italic text-center mb-4"> {/* Reduced margin */}
-            "{testimonial.testimony}"
-          </p>
+      {/* Testimonial Section */}
+      <motion.section
+        className="py-24 bg-[#f9f9f9]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-screen-xl mx-auto px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#035140] mb-8">
+            What Our Clients Say
+          </h2>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="testimonial-card flex flex-col items-center bg-white shadow-lg rounded-lg p-5 w-80"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-lg sm:text-xl text-gray-600 italic text-center mb-4">
+                  "{testimonial.testimony}"
+                </p>
 
-          {/* Client's name */}
-          <div className="font-semibold text-[#035140] text-xl mb-1">
-            {testimonial.name}
+                <div className="font-semibold text-[#035140] text-xl mb-1">
+                  {testimonial.name}
+                </div>
+
+                <div className="text-sm text-gray-500 mb-4">
+                  {testimonial.role}
+                </div>
+
+                <div className="w-12 h-1 bg-[#035140] rounded-full mb-4"></div>
+
+                <img
+                  src="/assets/avatar-placeholder.png"
+                  alt={`${testimonial.name}'s Avatar`}
+                  className="w-16 h-16 rounded-full object-cover mb-4 mx-auto"
+                />
+              </motion.div>
+            ))}
           </div>
-
-          {/* Client's role */}
-          <div className="text-sm text-gray-500 mb-4"> {/* Reduced margin */}
-            {testimonial.role}
-          </div>
-
-          {/* Decorative divider */}
-          <div className="w-12 h-1 bg-[#035140] rounded-full mb-4"></div>
-
-          {/* Optional image of the client (if any) */}
-          <img
-            src="/assets/avatar-placeholder.png" // Replace with real client image URL
-            alt={`${testimonial.name}'s Avatar`}
-            className="w-16 h-16 rounded-full object-cover mb-4 mx-auto"
-          />
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </motion.section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-[#035140] text-white text-center">
+      <motion.section
+        className="py-16 bg-[#035140] text-white text-center"
+        initial={{ opacity: 0, translateX:"100%" }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        whileInView={{ opacity: 1, translateX:0 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-3xl sm:text-4xl font-bold max-w-3xl mx-auto">
           Ready to take your school management to the next level?
         </h2>
@@ -135,10 +187,11 @@ const Home = () => {
             Get Started
           </a>
         </div>
-      </section>
-      <Footer/>
+      </motion.section>
+
+      <Footer />
     </div>
   );
-}
+};
 
 export default Home;
